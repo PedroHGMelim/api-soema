@@ -1,0 +1,15 @@
+com\aps\api_soema\controller\TipoController.class
+com\aps\api_soema\model\Usuario.class
+com\aps\api_soema\controller\LoginController.class
+com\aps\api_soema\model\Tipo.class
+com\aps\api_soema\controller\RegistroController.class
+com\aps\api_soema\repository\RegistroRepository.class
+com\aps\api_soema\repository\PulseiraRepository.class
+com\aps\api_soema\repository\TipoRepository.class
+com\aps\api_soema\controller\UsuarioController.class
+com\aps\api_soema\controller\PulseiraController.class
+com\aps\api_soema\DTOs\LoginDTO.class
+com\aps\api_soema\model\Pulseira.class
+com\aps\api_soema\repository\UsuarioRepository.class
+com\aps\api_soema\model\Registro.class
+com\aps\api_soema\ApiSoemaApplication.class
