@@ -8,5 +8,4 @@ import com.aps.api_soema.model.Tipo;
 
 public interface TipoRepository extends JpaRepository<Tipo, Long> {
     List<Tipo> findById(Byte id_tipo);
-    List<Tipo> findByIdContaining(Byte partedoIdTipo);
 }

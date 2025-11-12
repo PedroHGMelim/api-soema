@@ -1,34 +1,53 @@
 package com.aps.api_soema.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Pulseira {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String uuid_service;
-    private String uuid_characteristics;
-    private Long id_usuario;
+
+    private String nome;
+    private String uuid;
+    private String uuidService;
+    private String uuidCharacteristics;
+    private String tipo;
+
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
+    @JoinColumn(name = "id_usuario", nullable = false)
+    private Usuario usuario;
 
     public Pulseira() {}
 
-    public Pulseira(String uuid_service, String uuid_characteristics, Long id_usuario) {
-        this.uuid_service = uuid_service;
-        this.uuid_characteristics = uuid_characteristics;
-        this.id_usuario = id_usuario;
+    public Pulseira(String nome, String uuid, String uuidService, String uuidCharacteristics, String tipo, Usuario usuario) {
+        this.nome = nome;
+        this.uuid = uuid;
+        this.uuidService = uuidService;
+        this.uuidCharacteristics = uuidCharacteristics;
+        this.tipo = tipo;
+        this.usuario = usuario;
     }
 
-    //Getters e Setters
+    // Getters e Setters
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
-    public String getUuidservice() { return uuid_service; }
-    public void setUuidservice(String uuid_service) { this.uuid_service = uuid_service; }
-    public String getUuidcharacteristics() { return uuid_characteristics; }
-    public void setUuidcharacteristics( String uuid_characteristics ) { this.uuid_characteristics = uuid_characteristics; }
-    public Long getIdusuario() { return id_usuario; }
-    public void setIdusuario(Long id_usuario) { this.id_usuario = id_usuario; }
+
+    public String getNome() { return nome; }
+    public void setNome(String nome) { this.nome = nome; }
+
+    public String getUuid() { return uuid; }
+    public void setUuid(String uuid) { this.uuid = uuid; }
+
+    public String getUuidService() { return uuidService; }
+    public void setUuidService(String uuidService) { this.uuidService = uuidService; }
+
+    public String getUuidCharacteristics() { return uuidCharacteristics; }
+    public void setUuidCharacteristics(String uuidCharacteristics) { this.uuidCharacteristics = uuidCharacteristics; }
+
+    public String getTipo() { return tipo; }
+    public void setTipo(String tipo) { this.tipo = tipo; }
+
+    public Usuario getUsuario() { return usuario; }
+    public void setUsuario(Usuario usuario) { this.usuario = usuario; }
 }
