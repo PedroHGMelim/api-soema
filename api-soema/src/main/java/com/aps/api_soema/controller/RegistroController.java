@@ -44,6 +44,7 @@ public class RegistroController {
         return repository.findById(id_registro).map(registro -> {
             registro.setData(novoRegistro.getData());
             registro.setBpm(novoRegistro.getBpm());
+            registro.setPulseira(novoRegistro.getPulseira());
             return repository.save(registro);
         }).orElse(null);
     }

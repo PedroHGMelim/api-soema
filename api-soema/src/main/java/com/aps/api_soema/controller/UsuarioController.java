@@ -45,7 +45,8 @@ public class UsuarioController {
             usuario.setEmail(novoUsuario.getEmail());
             usuario.setSenha(novoUsuario.getSenha());
             usuario.setTelefone(novoUsuario.getTelefone());
-            usuario.setIdtipo(novoUsuario.getIdtipo());
+            usuario.setType(novoUsuario.getType());
+            usuario.setAgenda(novoUsuario.getAgenda());
             return repository.save(usuario);
         }).orElse(null);
     }

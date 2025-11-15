@@ -49,7 +49,7 @@ public class AgendaController {
         return repository.findById(id_agenda).map(agenda -> {
                 agenda.setTitulo(novaAgenda.getTitulo());
                 agenda.setData(novaAgenda.getData());
-                agenda.setIdUser(novaAgenda.getIdUser());
+                agenda.setUser(novaAgenda.getUser());
                 agenda.setNotas(novaAgenda.getNotas());
                 return repository.save(agenda);
             }).orElse(null);

@@ -1,5 +1,7 @@
 package com.aps.api_soema.model;
 
+import java.util.List;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -7,9 +9,7 @@ public class Pulseira {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String nome;
-    private String uuid;
     private String uuidService;
     private String uuidCharacteristics;
     private String tipo;
@@ -18,11 +18,13 @@ public class Pulseira {
     @JoinColumn(name = "id_usuario", nullable = false)
     private Usuario usuario;
 
+    @OneToMany(mappedBy = "pulseira", cascade = CascadeType.ALL)
+    private List<Pulseira> pulseira;
+
     public Pulseira() {}
 
     public Pulseira(String nome, String uuid, String uuidService, String uuidCharacteristics, String tipo, Usuario usuario) {
         this.nome = nome;
-        this.uuid = uuid;
         this.uuidService = uuidService;
         this.uuidCharacteristics = uuidCharacteristics;
         this.tipo = tipo;
@@ -35,9 +37,6 @@ public class Pulseira {
 
     public String getNome() { return nome; }
     public void setNome(String nome) { this.nome = nome; }
-
-    public String getUuid() { return uuid; }
-    public void setUuid(String uuid) { this.uuid = uuid; }
 
     public String getUuidService() { return uuidService; }
     public void setUuidService(String uuidService) { this.uuidService = uuidService; }

@@ -3,9 +3,12 @@ package com.aps.api_soema.model;
 import java.util.Date;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Registro {
@@ -14,13 +17,17 @@ public class Registro {
     private Long id_registro;
     private Date dat;
     private Short bpm;
-    private String uuid_service;
+
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
+    @JoinColumn(name = "uuid_service", nullable = false)
+    private Pulseira pulseira;
 
     public Registro() {}
 
-    public Registro(Date dat, Short bpm) {
+    public Registro(Date dat, Short bpm, Pulseira pulseira) {
         this.dat = dat;
         this.bpm = bpm;
+        this.pulseira = pulseira;
     }
 
     //Getters e Setters
@@ -30,6 +37,6 @@ public class Registro {
     public void setBpm(Short bpm) { this.bpm = bpm; }
     public Date getData() { return dat; }
     public void setData(Date dat) { this.dat = dat; }
-    public String getUuidservice() { return uuid_service; }
-    public void setUuidservice(String uuid_service) { this.uuid_service = uuid_service; }
+    public Pulseira getPulseira() { return pulseira; }
+    public void setPulseira(Pulseira pulseira) { this.pulseira = pulseira; }
 }

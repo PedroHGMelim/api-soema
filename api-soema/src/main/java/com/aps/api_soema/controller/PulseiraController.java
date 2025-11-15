@@ -48,9 +48,9 @@ public class PulseiraController {
                             @RequestBody Pulseira novaPulseira) {
         return repository.findById(id).map(pulseira -> {
                 pulseira.setNome(novaPulseira.getNome());
-                pulseira.setUuid(novaPulseira.getUuid());
                 pulseira.setUuidService(novaPulseira.getUuidService());
                 pulseira.setUuidCharacteristics(novaPulseira.getUuidCharacteristics());
+                pulseira.setTipo(novaPulseira.getTipo());
                 pulseira.setUsuario(novaPulseira.getUsuario());
                 return repository.save(pulseira);
             })
